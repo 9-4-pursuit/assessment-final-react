@@ -30,10 +30,16 @@ export default function Locations() {
     function handleSort(event) {
         let sortValue = event.target.value;
         // console.log(sortValue);
-        let sortedArr = [...allLocations];
-        sortedArr.sort((a, b) => a.sortValue > b.sortValue ? 1 : -1)
-        console.log(sortedArr[0]);
-        setAllLocations([...sortedArr]);
+        let sortedArr = [...allLocations].sort(function (a, b) {
+            if (a[sortValue] < b[sortValue]) {
+                return -1
+            }
+            if (a[sortValue] > b[sortValue]) {
+                return -1
+            }
+            return 0
+        })     
+        set   
     }
 
     return (
