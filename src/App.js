@@ -40,7 +40,6 @@ function App() {
         console.log("Locations fetch error", error);
       })
   }, [])
-  console.log("Initial locations in app", locations.length)
   return (
     <div className="app">
       <BrowserRouter>

@@ -13,11 +13,11 @@ export default function Movies({movies}) {
             )
         } else {
             return (
-                <div>
+                <aside>
                     <h2>Title: {movies[selectedIndex].title}</h2>
                     <p>Release Date: {movies[selectedIndex].release_date}</p>
                     <p>Description: {movies[selectedIndex].description}</p>
-                </div>
+                </aside>
             )
         }
     }

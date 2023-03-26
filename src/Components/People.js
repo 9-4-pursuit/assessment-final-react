@@ -2,25 +2,31 @@ import { useState } from 'react';
 
 export default function People({ people }) {
     const [selectPerson, setSelectPerson] = useState([]);
+    const [initialRender, setInitialRender] = useState(true);
     function handleSubmit(event) {
         event.preventDefault();
-        setSelectPerson(people.filter(person => (person.name === event.target.personSelect.value)))
+        setSelectPerson(people.filter(person => (person.name === event.target.personSelect.value)));
+        setInitialRender(false);
         //    populate with name, age, gender, clear field
         event.target.personSelect.value = "";
     }
     function personCard(){
-        if (selectPerson.length === 0) {
+        if (initialRender) {
+            return (
+                <div></div>
+            )
+        } else if (!initialRender && selectPerson.length === 0) {
             return (
                 <div>Not Found</div>
             )
         } else {
             return (
-                <div>
+                <aside>
                     <h3>Name: {selectPerson[0].name}</h3>
                     <p>Age: {selectPerson[0].age}</p>
                     <p>Eye Color {selectPerson[0].eye_color}</p>
                     <p>Hair Color {selectPerson[0].hair_color}</p>
-                </div>
+                </aside>
             )
         }
         
