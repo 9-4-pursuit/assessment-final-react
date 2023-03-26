@@ -1,8 +1,11 @@
 const baseURL = "https://resource-ghibli-api.onrender.com"
 
-// export function getShows(){
-//     return fetch{'${baseURL'}
-// }
+
+
+export function getAllMovies(){
+    return fetch(`${baseURL}/films`)
+    .then((response) => response.json());
+}
 
 
 export function returnLocations(){

@@ -1,34 +1,49 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { getAllMovies } from '../api/fetch';
 
 function Movies() {
 
     const [selectOption, setSelectOption] = useState("");
+    const [movies, setMovies] = useState([]);
+    //const [allMovies, setAllMovies] = useState ([]);
+    //const [searchTitle, setSearchTitle] = useState("")
+    const [loadingError, setLoadingError] = useState(false);
+
+
+    useEffect(() => {
+        getAllMovies()
+          .then((response) => {
+            setMovies(response);
+            setLoadingError(false);
+          })
+          .catch((error) => {
+            console.error(error);
+            setLoadingError(true);
+          });
+      }, []);
 
     function handleSelectOption(event){
         setSelectOption(event.target.value)
-        console.log(selectOption) //to check this value
     }
 
-    function handleSubmit(event){
-        event.preventDefault();
-        console.log("handle submit triggered")
-    }
+
   return (
     <div className='movies'>
         <h1>Select a Movie</h1>
-        <form className='movies-form' onSubmit={ handleSubmit }>
+        <form className='movies-form'>
         <select id="movies" onChange={handleSelectOption}>
             <option value=""></option>
-            <option value="create from fetch">Create From fetch</option>
+            {movies.map((movie) => (
+                <option value={ movie.id} key={ movie.id }>
+                    {movie.title}
+                </option>
+            ))}
         </select>
-        <p>Create function to handle movie Selection here.</p>
-        function populateSelection(){        }
      </form>
-
-
     </div>
-  )
+  );
 }
 
 export default Movies
+
