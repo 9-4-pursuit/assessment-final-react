@@ -1,64 +1,70 @@
-import React, { useState, useEffect } from "react";
-import { getAllPersons } from "../Fetch";
+import { useState, useEffect } from "react";
+import Person from "./Person";
 
+function People() {
+  const [people, setPeople] = useState([]);
+  const [search, setSearch] = useState("");
+  const [found, setFound] = useState("");
+  const [submit, setSubmit] = useState(false);
 
-const People = () => {
-    const [people, setPeople] = useState([]);
-    const [search, setSearch] = useState("");
-    const [results, setResults] = useState([]);
+  useEffect(() => {
+    async function getPeople() {
+      const res = await fetch("https://resource-ghibli-api.onrender.com/people");
+      const data = await res.json();
+      setPeople(
+        data.map(({ name, age, hair_color, eye_color }) => ({
+          name: name,
+          age: age,
+          hair_color: hair_color,
+          eye_color: eye_color,
+        }))
+      );
+    }
+    getPeople();
+  }, []);
 
-    useEffect(() => {
-        getAllPersons().then((people) => {
-            setPeople(people);
-        });
-    }, []);
+  const onChange = (e) => {
+    setSearch(e.target.value);
+    setSubmit(false);
+  };
 
-    const handleSearch = (e) => {
-        const { value } = e.target;
-        setSearch(value);
-    };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log(search);
+    setFound(search);
+    setSearch("");
+    setSubmit(true);
+  };
 
-    const searchFilter = () => {
-        const searchResult = people
-            .filter((person) =>
-                person.name.toLowerCase().includes(search.toLowerCase())
-            )
-            .map(({ id, name, age, eye_color, hair_color }) => {
-                return (
-                    <div className="item" key={id} >
-                        <h1>Name: {name}</h1>
-                        <p> Age: {age}</p>
-                        <p>Eye Color: {eye_color}</p>
-                        <p>Hair Color: {hair_color}</p>
-                    </div>
-                );
-            });
-        if (searchResult.length === 0) {
-            setResults(<div className="item warning"><p>Not Found</p></div>);
-        } else {
-            setResults(searchResult);
-        }
-    };
+  const foundPerson = people.find(
+    (person) => person.name.toLowerCase() === found.toLowerCase()
+  );
+  console.log(search);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        searchFilter();
-        setSearch("");
-    };
-
-    return (
-        <div className='people'>
-            <h1>Search for a Person</h1>
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <input type='text' onChange={handleSearch} value={search} required />
-                    <button type='submit' value='Submit'>
-                        Search
-                    </button>
-                </form>
-            </div>
-            {results}
+  return (
+    <div className="people">
+      <h1>Search for a Person</h1>
+      <br />
+      <form className="type-form" onChange={onChange} onSubmit={onSubmit}>
+        <div className="form">
+          <input
+            onChange={onChange}
+            id="people-search"
+            value={search}
+            type="text"
+            placeholder="Enter a Name..."
+          />
+          <button type="submit" id="search-button" onSubmit={onSubmit}>
+            Submit
+          </button>
+          <section>
+            {foundPerson && submit ? (<Person people={foundPerson} />)
+              : !foundPerson && submit ? ("Not Found") : null}
+          </section>
         </div>
-    );
-};
+      </form>
+    </div>
+  );
+}
+
 export default People;

@@ -1,82 +1,69 @@
-import React, { useState, useEffect } from "react";
-import { getAllLocations } from "../Fetch";
+import { useState, useEffect } from "react";
+import Location from "./Location";
 
-const Locations = () => {
-    const [locations, setLocations] = useState([]);
-    const [results, setResults] = useState([]);
-    const [show, setShow] = useState(false);
+function Locations() {
+  const [clicked, setClicked] = useState(false);
+  const [sortedLocations, setSortedLocations] = useState([]);
 
-    useEffect(() => {
-        getAllLocations().then((locations) => {
-            setLocations(locations);
-        });
-    }, []);
+  useEffect(() => {
+    async function fetchLocations() {
+      try {
+        const response = await fetch("https://resource-ghibli-api.onrender.com/locations");
+        const data = await response.json();
+        setSortedLocations([...data]);
+      } catch (error) {
+        console.error("Error fetching locations:", error);
+      }
+    }
+    fetchLocations();
+  }, []);
 
-    const handleSort = (sort) => {
-        const sortedLocations = locations.sort(function (a, b) {
-            if (a[sort] < b[sort]) {
-                return -1;
-            }
-            if (a[sort] > b[sort]) {
-                return 1;
-            }
-            return 0;
-        });
-        setLocations(sortedLocations);
-        handleLocations();
-        setShow(true);
-    };
+  function handleClick(event) {
+    event.preventDefault();
+    setClicked(!clicked);
+  }
 
-    const handleLocations = () => {
-        const results = locations.map(({ id, name, climate, terrain }) => {
-            return (
-                <ul key={id}>
-                    <li>
-                        <ul>
-                            <li>
-                                <span>Name:</span> <span>{name}</span>
-                            </li>
-                            <li>
-                                <span>Climate:</span> <span>{climate}</span>
-                            </li>
-                            <li>
-                                <span>Terrain:</span> <span>{terrain}</span>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            );
-        });
-        setResults(results);
-        show ? setShow(false) : setShow(true);
-    };
+  function handleSort(event) {
+     const sorter = event.target.value;
+     setSortedLocations([...sortedLocations].sort((a, b) => {
+       if (a[sorter] < b[sorter]) {
+         return -1;
+       }
+       if (a[sorter] > b[sorter]) {
+         return 1;
+       }
+       return 0;
+     }));
+   }
 
-    return (
-        <div className='locations'>
-            <h1>List of Locations</h1>
-            <div className='locations-btn'>
-                <button type='submit' onClick={() => handleLocations()}>
-                    {show ? "Hide Locations" : "Show Locations"}
-                </button>
-                {show ? (
-                    <>
-                        <button type='submit' onClick={() => handleSort("name")}>
-                            Sort by Name
-                        </button>
-                        <button type='submit' onClick={() => handleSort("climate")}>
-                            Sort by Climate
-                        </button>
-                        <button type='submit' onClick={() => handleSort("terrain")}>
-                            Sort by Terrain
-                        </button>
-                    </>
-                ) : (
-                    ""
-                )}
-            </div>
-            <>{show && results}</>
+  let text = "";
+  if (clicked === false) {
+    text = "Show Locations";
+  }
+  if (clicked === true) {
+    text = "Hide Locations";
+  }
+
+  return (
+    <div className="locations">
+      <h1>List of Locations</h1>
+      <button onClick={handleClick}>{text}</button>
+      {!clicked ? null : (
+        <div>
+          <button value="name" onClick={handleSort}>Sort by Name</button>
+          <button value="climate" onClick={handleSort}>Sort by Climate</button>
+          <button value="terrain" onClick={handleSort}>Sort by Terrain</button>
+
+          <ul className="locations-data">
+            {sortedLocations &&
+              sortedLocations.map((locationData) => {
+                return <li><Location locationData={locationData} key={locationData.id} /></li>;
+              })}
+          </ul>
         </div>
-    );
-};
+      )}
+    </div>
+  );
+}
 
 export default Locations;

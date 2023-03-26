@@ -1,8 +1,6 @@
-import React from "react";
-
-const Home = () => {
+function Home() {
     return (
-        <div className="home">
+        <div className="app">
             <h1 className="header">Welcome to GhibliApp</h1>
         </div>
     );
