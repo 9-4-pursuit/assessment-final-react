@@ -1,0 +1,22 @@
+header {
+    background-color: #517e94;
+    align-items: center;
+}
+
+.logo-link {
+    text-decoration: none;
+    color: whitesmoke;
+    height: 50px;
+    width: 50px;
+}
+
+li {
+    display: inline-flex;
+    font-size: small;
+}
+
+li:hover {
+    color: darkblue;
+}
+
+
