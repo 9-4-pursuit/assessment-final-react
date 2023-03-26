@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
 
-export default function Movie (){
+export default function Movie ({ movieSelection }){
     return (
         <div>
-            <h5>Movie Page</h5>
+            <h2><span>Title: </span>{movieSelection.title}</h2>
+            <p><span>Release Date:</span>{movieSelection.release_date}</p>
+            <p><span>Description: </span>{movieSelection.description}</p>
 
         </div>
     )
