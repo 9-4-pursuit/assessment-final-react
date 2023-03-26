@@ -11,7 +11,7 @@ export default function Locations() {
     async function handleLoad() {
         const answer = await allThings("locations");
         setAllLocations([...answer.data])
-        // console.log(allLocations);
+        console.log(allLocations);
     }
 
     useEffect(() => {
@@ -20,15 +20,20 @@ export default function Locations() {
 
     function handleClick() {
         setShowContent(!showContent);
-        if (!showContent){
+        if (!showContent) {
             setButtonText("Hide Locations");
         } else {
             setButtonText("Show Locations");
         }
     };
 
-    function handleSort(event){
-
+    function handleSort(event) {
+        let sortValue = event.target.value;
+        // console.log(sortValue);
+        let sortedArr = [...allLocations];
+        sortedArr.sort((a, b) => a.sortValue > b.sortValue ? 1 : -1)
+        console.log(sortedArr[0]);
+        setAllLocations([...sortedArr]);
     }
 
     return (
@@ -38,19 +43,23 @@ export default function Locations() {
             {
                 showContent
                     ? <>
-                        <button onClick={handleSort} value="name">Sort By Name</button>
-                        <button onClick={handleSort} value="climate">Sort By Climate</button>
-                        <button onClick={handleSort} value="terrain">Sort By Terrain</button>
-                        {allLocations.map((location) => {
-                            // console.log(location);
-                            return(
-                                <ul key={location.id}>
-                                    <p>{`Name:  ${location.name}`}</p>
-                                    <p>{`Climate:  ${location.climate}`}</p>
-                                    <p>{`Terrain:  ${location.terrain}`}</p>
-                                </ul>
-                            )
-                        })}
+                        <button onClick={handleSort} value="name">Sort by Name</button>
+                        <button onClick={handleSort} value="climate">Sort by Climate</button>
+                        <button onClick={handleSort} value="terrain">Sort by Terrain</button>
+                        <ul>
+                            {allLocations.map((location) => {
+                                // console.log(location);
+                                return (
+                                    <ul key={location.id}>
+                                        <li>
+                                            <p>Name:  <span>{location.name}</span></p>
+                                            <p>Climate: <span>{location.climate}</span></p>
+                                            <p>Terrain:  <span>{location.terrain}</span></p>
+                                        </li>
+                                    </ul>
+                                )
+                            })}
+                        </ul>
                     </>
                     : <></>
             }
