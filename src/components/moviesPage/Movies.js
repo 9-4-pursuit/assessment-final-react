@@ -53,8 +53,8 @@ export default function Movies({ movies }) {
             </select>
             </h2>
             <aside>
-                <h2>Title: <text style={{"fontWeight": "normal"}}>{movie.title}</text></h2>
-                <h4 style={{"textAlign": "center"}}>Release Date: <text style={{"fontWeight": "normal"}}>{movie.release_date}</text></h4>
+                <h2>Title: <span style={{"fontWeight": "normal"}}>{movie.title}</span> </h2>
+                <h4 style={{"textAlign": "center"}}>Release Date: <span style={{"fontWeight": "normal"}}>{movie.release_date}</span></h4>
                 <p>{movie.description}</p>
             </aside>
         </div>
