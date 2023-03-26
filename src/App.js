@@ -12,6 +12,7 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [people, setPeople] = useState([]);
   const [locations, setLocations] = useState([]);
+
   useEffect(() => {
     getAllMovies()
       .then((response) => {
@@ -39,6 +40,7 @@ function App() {
         console.log("Locations fetch error", error);
       })
   }, [])
+  console.log("Initial locations in app", locations.length)
   return (
     <div className="app">
       <BrowserRouter>

@@ -15,6 +15,7 @@ export default function Locations({ locations }) {
 
     useEffect(() => {
         setLocationsList(locations)
+        console.log(locations.length)
     }, [locations])
 
     function handleClick() {
