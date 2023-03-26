@@ -1,0 +1,117 @@
+In Index, replaced React.StrictMode with </BrowserRouter>.  
+Do I need a home page? Or will App.js suffice? Let's put one in just in case. I can always move the routing later.
+Nope. Routes are created in the App component.
+=============================
+
+=============LOCATIONS====================
+this didn't work:
+import React from 'react'
+import { useState } from 'react'
+
+function Locations() {
+
+    // const [clicked, setClicked]=useState(false);
+    // const [selectOption, setSelectOption] = useState("");
+    //const listLocations = locations.map(location => {
+        // return(
+        //     <Locations
+        //     name={location.name}
+        //     climate={location.climate}
+        //     terrain={location.terrain}
+        //     />
+        // );
+    
+    //);
+
+    <!-- function locationCard(props) {
+        if (!props.location){
+            return null;
+        }
+        const { name, climate, terrain } = props.location;
+
+        
+     -->
+
+    // function handleButtonClick(){
+    //     setClicked(!clicked)
+    // };
+    // function handleSelectOption(event){
+    //     setSelectOption(event.target.value)
+    //     console.log(selectOption) //to check this value
+    // }
+
+
+  return (
+    <div className='locations'>
+        <h1>List of Locations</h1>
+
+        <button onClick={handleButtonClick}>Show Locations</button>
+
+        <p>If show locations button has been clicked and a location has been chosen..</p>
+        <button onClick="">Sort by Name</button>
+        <button onClick="">Sort by Climate</button>
+        <button onClick="">Sort by Terrain</button>
+        
+        <div className='information'>
+            <h2>{name}</h2>
+            <p>{climate}</p>
+            <p>{terrain}</p>
+        </div>
+        {/* <ul>{ listLocations }</ul> */}
+
+    </div>
+  )
+}
+
+export default Locations
+
+//Not using:          
+// <label htmlFor='location'>Show Location</label>
+
+
+
+
+
+
+============== MOVIES =====================
+
+Here is movies before all the changes I am about to make:
+
+import React from 'react'
+import { useState, useEffect } from 'react'
+import { useNavigate, Link, useParams } from 'react-router-dom';
+import { getAllMovies } from '../api/fetch';
+
+function Movies() {
+
+    const [selectOption, setSelectOption] = useState("");
+
+
+    
+    function handleSelectOption(event){
+        setSelectOption(event.target.value)
+        console.log(selectOption) //to check this value
+    }
+
+    function handleSubmit(event){
+        event.preventDefault();
+        console.log("handle submit triggered")
+    }
+  return (
+    <div className='movies'>
+        <h1>Select a Movie</h1>
+        <form className='movies-form' onSubmit={ handleSubmit }>
+        <select id="movies" onChange={handleSelectOption}>
+            <option value=""></option>
+            <option value="create from fetch">Create From fetch</option>
+        </select>
+        <p>Create function to handle movie Selection here.</p>
+        function populateSelection(){        }
+     </form>
+
+
+    </div>
+  )
+}
+
+export default Movies
