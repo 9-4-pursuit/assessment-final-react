@@ -18,8 +18,6 @@ function App() {
           <Route path="/locations" element={<Locations/>} />
         </Routes>
       </main>
-      
-      
     </div>
   );
 }

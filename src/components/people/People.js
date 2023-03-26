@@ -12,10 +12,9 @@ export default function People() {
   useEffect(() => {
     getPeople()
     .then((res) => {
-      console.log(res);
       setAllPeople([...res]);
-    })
-  },[])
+    });
+  },[]);
 
   //function for form submission
   function onSearchSubmit(event) {
@@ -28,8 +27,7 @@ export default function People() {
 
     result ? setPerson(result) 
     :setPerson({})
-    
-
+  
     setSearchSubmitted(true);
 
   }

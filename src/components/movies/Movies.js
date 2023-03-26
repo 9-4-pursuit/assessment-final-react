@@ -6,15 +6,14 @@ import Movie from "./Movie";
 export default function Movies() {
   const [allMovies, setAllMovies] = useState([]);
   const [movie, setMovie] = useState({});
-  const [isMovieSelected, setIsMovieSelected] = useState(false)
+  const [isMovieSelected, setIsMovieSelected] = useState(false);
 
   //get all the movies and set it to state
   //for populating the select box on first render
   useEffect(() => {
     getMovies()
     .then((res) => {
-      console.log(res)
-      setAllMovies([...res])
+      setAllMovies([...res]);
     })
   }, []);
 

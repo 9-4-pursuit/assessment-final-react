@@ -11,7 +11,6 @@ export default function Locations() {
   useEffect(() => {
     getLocations()
     .then((res) => {
-      console.log(res);
       setAllLocations([...res])
     });
   }, []);
@@ -19,7 +18,6 @@ export default function Locations() {
   //function to show or hide the loactions
   function toggleLocations() {
     setLocationsShown(!locationsShown);
-    console.log(allLocations)
   }
 
   //function for sorting
@@ -54,7 +52,6 @@ export default function Locations() {
       {allLocations.map((location) => {
         return <Location key={location.id} location={location}/>
       })}
-      
     </ul> 
     : null}
 
