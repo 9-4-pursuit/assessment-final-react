@@ -17,3 +17,12 @@ export async function getPeople() {
         console.log(e);
     }
 }
+
+export async function getLocations() {
+    try {
+        const response = await axios.get(`https://resource-ghibli-api.onrender.com/locations`);
+        return response.data;
+    } catch(e) {
+        console.log(e);
+    }
+}

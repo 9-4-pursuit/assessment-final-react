@@ -6,7 +6,7 @@ function NavBar() {
     <nav>
       <ul className='head-links'>
         <NavLink to='/'>
-          <li>Home</li>
+          <li><img src='../../Studio_Ghibli_logo.png' alt='Home'/></li>
         </NavLink>
 
         <NavLink to='/movies'>
