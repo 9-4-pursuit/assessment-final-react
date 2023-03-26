@@ -3,14 +3,15 @@ import { allThings } from "../services/fetch";
 
 export default function Locations() {
 
+
     const [allLocations, setAllLocations] = useState([]);
     const [showContent, setShowContent] = useState(false);
-    const [buttonText, setButtonText] = useState("SHOW LOCATIONS");
+    const [buttonText, setButtonText] = useState("Show Locations");
 
     async function handleLoad() {
         const answer = await allThings("locations");
-        setAllLocations([answer.data])
-        console.log(allLocations);
+        setAllLocations([...answer.data])
+        // console.log(allLocations);
     }
 
     useEffect(() => {
@@ -20,10 +21,14 @@ export default function Locations() {
     function handleClick() {
         setShowContent(!showContent);
         if (!showContent){
-            setButtonText("HIDE LOCATIONS");
+            setButtonText("Hide Locations");
         } else {
-            setButtonText("SHOW LOCATIONS");
+            setButtonText("Show Locations");
         }
+    };
+
+    function handleSort(event){
+
     }
 
     return (
@@ -33,9 +38,19 @@ export default function Locations() {
             {
                 showContent
                     ? <>
-                        <button>SORT BY NAME</button>
-                        <button>SORT BY CLIMATE</button>
-                        <button>SORT BY TERRAIN</button>
+                        <button onClick={handleSort} value="name">Sort By Name</button>
+                        <button onClick={handleSort} value="climate">Sort By Climate</button>
+                        <button onClick={handleSort} value="terrain">Sort By Terrain</button>
+                        {allLocations.map((location) => {
+                            // console.log(location);
+                            return(
+                                <ul key={location.id}>
+                                    <p>{`Name:  ${location.name}`}</p>
+                                    <p>{`Climate:  ${location.climate}`}</p>
+                                    <p>{`Terrain:  ${location.terrain}`}</p>
+                                </ul>
+                            )
+                        })}
                     </>
                     : <></>
             }

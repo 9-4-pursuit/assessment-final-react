@@ -11,7 +11,7 @@ export default function Movies() {
 
     async function handleLoad() {
         const answer = await allThings('films');
-        setAllFilms(answer.data);
+        setAllFilms([...answer.data]);
         console.log(answer, allFilms);
     };
 

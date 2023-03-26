@@ -10,7 +10,7 @@ export default function People() {
 
     async function handleLoad(){
         const answer = await allThings('people');
-        setAllPeople([answer.data])
+        setAllPeople([...answer.data])
         console.log(allPeople);
     }
 
