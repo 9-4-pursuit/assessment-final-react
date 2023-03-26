@@ -1,14 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css";
 
-import Movies from "./components/Movies";
-import NavBar from "./components/NavBar";
-import People from "./components/People";
+import Movies from "./Components/Movies";
+import NavBar from "./Components/NavBar";
+import People from "./Components/People";
 
-import Home from "./pages/Home";
-import Locations from "./pages/Locations";
-import MoviesPage from "./pages/MoviesPage";
-import PeoplePage from "./pages/PeoplePage";
+import Home from "./Components/Home";
+import Locations from "./Components/Locations";
+
 
 
 function App() {
@@ -18,8 +17,8 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/movies" element={ <MoviesPage /> } />
-          <Route path="/people" element={ <PeoplePage /> } />
+          <Route path="/movies" element={ <Movies /> } />
+          <Route path="/people" element={ <People /> } />
           <Route path="/locations" element={ <Locations /> } />
         </Routes>
       </Router>

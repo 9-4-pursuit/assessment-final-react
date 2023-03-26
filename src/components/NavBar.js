@@ -1,28 +1,17 @@
 import { Link } from "react-router-dom";
-import ghibliLogo from "../components/ghibliLogo.png";
+import ghibliLogo from "../Components/ghibliLogo.png";
 
-function NavBar() {
+function NavBar () {
     return (
-      <div className="nav">
         <nav>
             <Link to='/'>
             <img src={ghibliLogo}  alt="ghibli-logo" width="50px" height="50px" />
             </Link>
 
-            <Link to="/movies">
-                <li>Movies</li>
-            </Link>
-
-            <Link to="/people">
-                <li>People</li>
-            </Link>
-
-            <Link to="/locations">
-                <li>Locations</li>
-            </Link>
-            
+            <Link to="/movies">Movies</Link>
+            <Link to="/people">People</Link>
+            <Link to="/locations">Locations</Link>
         </nav>
-      </div>
     );
   }
   
