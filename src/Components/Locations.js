@@ -1,5 +1,6 @@
 import { getLocations } from "../Constants";
 import { useEffect, useState } from "react";
+
 export default function Location() {
   const [locations, setLocations] = useState([]);
   const [buttonClicked, setButtonClicked] = useState(false);
