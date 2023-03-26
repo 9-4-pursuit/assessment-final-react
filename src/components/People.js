@@ -3,7 +3,7 @@
 export default function People() {
     return (
         <div>
-            <h1>Welcome to GhibliApp</h1>
+            <h1>Welcome to People</h1>
         </div>
     )
     

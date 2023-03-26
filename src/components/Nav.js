@@ -8,7 +8,15 @@ export default function Nav() {
             <Link to='/' >
                 <img src={logo} alt="logo" className="logo"/>
             </Link>
-            <p>NavBar</p>
+            <Link to='/movies' >
+                <p>Movies</p>
+            </Link>
+            <Link to='/people' >
+                <p>People</p>
+            </Link>
+            <Link to='/locations' >
+                <p>Locations</p>
+            </Link>
         </div>
     )
     
