@@ -14,3 +14,10 @@ export function getPeople() {
     console.log(e);
   }
 }
+export function getLocations() {
+  try {
+    return fetch(`${URL}/locations`).then((response) => response.json());
+  } catch (e) {
+    console.log(e);
+  }
+}
