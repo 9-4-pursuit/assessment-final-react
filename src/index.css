@@ -67,6 +67,8 @@ li {
   flex-wrap: no-wrap;
   width: 100%;
   justify-content: center;
+  height: 50px;
+  align-items: center;
 }
 
 .locations ul > ul li span {
