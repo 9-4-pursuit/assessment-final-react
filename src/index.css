@@ -7,6 +7,14 @@ nav {
   font-family: sans-serif;
 }
 
+nav li {
+  list-style: none;
+  color : aqua
+}
+nav li:hover {
+  color: purple
+}
+
 nav a {
   text-decoration: none;
   font-size: 2em;
@@ -121,4 +129,13 @@ ul li::marker {
   font-size: 150%;
   color: #517e94;
   opacity: 0;
+}
+
+nav  li {
+  list-style: none;
+}
+
+img:hover{
+  min-height: 50px;
+  min-width: 50px;
 }

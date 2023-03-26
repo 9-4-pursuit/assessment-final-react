@@ -1,7 +1,13 @@
+import Nav from "./Components/Nav";
+import Container from "./Components/Container";
+
 function App() {
   return (
     <div className="app">
-      <h1>Welcome to GhibliApp</h1>
+      <Nav />
+      <main>
+        <Container />
+      </main>
     </div>
   );
 }
