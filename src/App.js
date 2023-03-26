@@ -1,7 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 
 import Home from "./components/Home";
+import Locations from "./components/Locations";
 import Nav from "./components/Nav";
+import People from "./components/People";
+import Movies from "./components/Movies";
 
 function App() {
   return (
@@ -10,14 +13,9 @@ function App() {
 
       <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/shows" element={<ShowsIndex />} />
-          <Route path="/shows/new" element={<ShowsNewForm />} />
-          <Route path="/shows/:id" element={<Show />} />
-          <Route path="/shows/:id/edit" element={<ShowsEditForm />} />
-          <Route path="/movies" element={<MoviesIndex />} />
-          <Route path="/movies/new" element={<MoviesNewForm />} />
-          <Route path="/movies/:id" element={<Movie />} />
-          <Route path="/movies/:id/edit" element={<MoviesEditForm />} /> */}
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/people" element={<People />} />
+          <Route path="/locations" element={<Locations />} />
       </Routes>
     </div>
   );
