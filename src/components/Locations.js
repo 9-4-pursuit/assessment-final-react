@@ -38,8 +38,7 @@ export default function Locations() {
                 return -1
             }
             return 0
-        })     
-        set   
+        })       
     }
 
     return (
