@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Alert from 'react-bootstrap/Alert';
+import './People.css';
 
 const People = () => {
   const [people, setPeople] = useState([]);
@@ -39,34 +45,39 @@ const People = () => {
 
   return (
     <div className="people">
-      <h2>Search for a Person</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={searchTerm} onChange={handleSearch} />
-        <button className="btn-secondary" type="submit">Search</button>
-        <button  className="btn-secondary" type="button" onClick={handleClear}>
-          Clear
-        </button>
-      </form>
-      {showNotFound && searchTerm.length > 0 && <p>Not Found</p>}
-      <div className="people-list">
-        {searchResults.map((person) => (
-            <div key={person.id} className="person">
-              <h3>Name: {person.name}</h3>
-              <p>
-                <strong>Age:</strong> {person.age}
-              </p>
-              <p>
-                <strong>Eye Color:</strong> {person.eye_color}
-              </p>
-              <p>
-                <strong>Hair Color:</strong> {person.hair_color}
-              </p>
-            </div>
+      <Container className="my-3">
+        <h2 className="text-center mb-3">Search for a Person</h2>
+        <Form onSubmit={handleSubmit}>
+          <Row className="align-items-end mb-3">
+            <Col xs={12} sm={8} md={9}>
+              <Form.Control type="text" value={searchTerm} onChange={handleSearch} placeholder="Enter a name" />
+            </Col>
+            <Col xs={6} sm={2} md={1}>
+              <Button variant="primary" type="submit" block>Search</Button>
+            </Col>
+            <Col xs={6} sm={2} md={1}>
+              <Button variant="secondary" type="button" onClick={handleClear} block>Clear</Button>
+            </Col>
+          </Row>
+        </Form>
+        {showNotFound && <Alert variant="warning" className="text-center">Not Found</Alert>}
+        <Row>
+          {searchResults.map((person) => (
+            <Col xs={12} sm={6} md={4} key={person.id}>
+              <div className="card mb-3">
+                <div className="card-body">
+                  <h5 className="card-title">Name: {person.name}</h5>
+                  <p className="card-text"><strong>Age:</strong> {person.age}</p>
+                  <p className="card-text"><strong>Eye Color:</strong> {person.eye_color}</p>
+                  <p className="card-text"><strong>Hair Color:</strong> {person.hair_color}</p>
+                </div>
+              </div>
+            </Col>
           ))}
-      </div>
+        </Row>
+      </Container>
     </div>
   );
-  
 };
 
 export default People;

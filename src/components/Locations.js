@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 const Locations = () => {
   const [locations, setLocations] = useState([]);
@@ -48,42 +49,32 @@ const Locations = () => {
   return (
     <div className="locations">
       <h2>Locations</h2>
-      <button  className="btn-secondary" onClick={handleHideLocations}>
+      <Button variant="secondary" onClick={handleHideLocations}>
         {hideLocations ? "Show Locations" : "Hide Locations"}
-      </button>
+      </Button>
       {!hideLocations && (
         <div>
-          <button  className="btn-secondary" onClick={sortByName}>Sort by Name</button>
-          <button  className="btn-secondary" onClick={sortByClimate}>Sort by Climate</button>
-          <button  className="btn-secondary" onClick={sortByTerrain}>Sort by Terrain</button>
+          <Button variant="secondary" onClick={sortByName}>Sort by Name</Button>
+          <Button variant="secondary" onClick={sortByClimate}>Sort by Climate</Button>
+          <Button variant="secondary" onClick={sortByTerrain}>Sort by Terrain</Button>
         </div>
       )}
       {locations.length === 0 ? (
         <p>Loading...</p>
       ) : hideLocations ? null : (
-        <ul>
+        <div className="card-columns">
           {sortedLocations.map((location) => (
-            <li key={location.id}>
-              <ul>
-                {sortBy === "name" && (
-                  <li><span>Location Name:</span> <span>{location.name}</span></li>
-                )}
-                {sortBy === "climate" && (
-                  <>
-                    <li><span>Location Climate:</span> <span>{location.climate}</span></li>
-                    <li><span>Location Name:</span> <span>{location.name}</span></li>
-                  </>
-                )}
-                {sortBy === "terrain" && (
-                  <>
-                    <li><span>Location Terrain:</span> <span>{location.terrain}</span></li>
-                    <li><span>Location Name:</span> <span>{location.name}</span></li>
-                  </>
-                )}
-              </ul>
-            </li>
+            <Card key={location.id}>
+              <Card.Body>
+                <Card.Title>{location.name}</Card.Title>
+                <Card.Text>
+                  <span>Climate: </span>{location.climate}<br />
+                  <span>Terrain: </span>{location.terrain}
+                </Card.Text>
+              </Card.Body>
+            </Card>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

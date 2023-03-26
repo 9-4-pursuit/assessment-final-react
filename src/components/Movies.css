@@ -1,0 +1,24 @@
+.movies {
+    background-image: url(https://wallpaperaccess.com/full/4730363.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80vh;
+    padding-top: 1em;
+    font-family: 'ITC Avant Garde Gothic';
+  }
+  
+  .selected-movie {
+    font-family: 'ITC Lubalin Graph Std';
+    background-color: #978f8f;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 1em;
+    padding: 1em;
+  }
+  
+  @media (max-width: 576px) {
+    .movies {
+      height: auto;
+    }
+  }
+  

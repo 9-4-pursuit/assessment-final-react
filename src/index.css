@@ -32,6 +32,7 @@ main {
 
 .movies h2 {
   font-family: 'ITC Lubalin Graph Std';
+  color: whitesmoke
 }
 
 .movie-select {
@@ -64,6 +65,7 @@ li {
 
 .locations h2 {
   font-family: 'ITC Lubalin Graph Std';
+  color: whitesmoke;
 }
 
 .locations > ul {
@@ -117,6 +119,7 @@ li {
 
 .people h2 {
   font-family: 'ITC Lubalin Graph Std';
+  color: whitesmoke
 }
 
 .people aside {
@@ -175,12 +178,18 @@ button {
 .home h1 {
   font-family: 'ITC Lubalin Graph Std';
   text-decoration: underline;
-  color: #fff;
+  color: whitesmoke;
   margin-bottom: 1em;
 }
 
+.home button {
+  font-family: 'ITC Lubalin Graph Std', sans-serif;
+}
+
+
 .home img {
   height: 150px;
+  border-radius: 45px;
   margin-bottom: 1em;
 }
 

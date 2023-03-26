@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Card from "react-bootstrap/Card";
 
 const Movies = () => {
-    
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
@@ -25,7 +25,7 @@ const Movies = () => {
   return (
     <div className="movies">
       <h2>Movie List</h2>
-      <label htmlFor="movie-select">Select a movie:</label>
+      <label htmlFor="movie-select">Select a movie:</label><br></br>
       <select id="movie-select" onChange={handleSelectMovie}>
         <option value="">Choose a movie...</option>
         {movies.map((movie) => (
@@ -35,10 +35,12 @@ const Movies = () => {
         ))}
       </select>
       {selectedMovie && (
-        <div className="selected-movie">
-          <h3>{selectedMovie.title}</h3>
-          <p>{selectedMovie.description}</p>
-        </div>
+        <Card className="selected-movie mt-4">
+          <Card.Body>
+            <Card.Title>{selectedMovie.title}</Card.Title>
+            <Card.Text>{selectedMovie.description}</Card.Text>
+          </Card.Body>
+        </Card>
       )}
     </div>
   );
