@@ -13,8 +13,9 @@ nav a {
   color: white;
 }
 
-nav img {
+nav a img {
   height: 50px;
+  width: 50px;
 }
 
 main {
@@ -57,13 +58,14 @@ li {
 .locations ul > li > ul {
   margin-left: 0;
   list-style: none;
+  padding-left: 0px;
 }
 
 .locations ul > li > ul li {
   background: ghostwhite;
   display: flex;
   flex-wrap: no-wrap;
-  width: 90%;
+  width: 80%;
   justify-content: center;
 }
 
