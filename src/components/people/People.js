@@ -1,5 +1,5 @@
 export default function People() {
-  return (<div>
+  return (<div className="people">
 
   </div>);
 };

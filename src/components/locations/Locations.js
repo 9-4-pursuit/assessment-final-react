@@ -1,6 +1,6 @@
 
 export default function Locations() {
-  return (<div>
-
+  return (<div className="locations">
+    
   </div>);
 };
