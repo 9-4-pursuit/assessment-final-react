@@ -1,7 +1,14 @@
+import Header from "./components/Header";
+import Container from './Container';
+import "./index.css";
+
 function App() {
   return (
     <div className="app">
-      <h1>Welcome to GhibliApp</h1>
+      <Header />
+      <main>
+        <Container />
+      </main>
     </div>
   );
 }
