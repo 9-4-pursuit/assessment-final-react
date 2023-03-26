@@ -1,9 +1,8 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { getAllMovies } from "../Fetch";
 
 const Films = () => {
-    const [movies, setFilms] = useState([]);
+    const [films, setFilms] = useState([]);
     const [result, setResult] = useState([]);
   
     useEffect(() => {
@@ -14,7 +13,7 @@ const Films = () => {
   
     const handleSelect = (e) => {
       const { value } = e.target;
-      const selected = movies.find(({ id }) => id === value);
+      const selected = films.find(({ id }) => id === value);
       if (!selected) {
         setResult("");
       } else {
@@ -35,9 +34,9 @@ const Films = () => {
         <div>
           <select onChange={handleSelect}>
             <option value=''></option>
-            {movies.map((movie) => (
-              <option key={movie.id} value={movie.id}>
-                {movie.title}
+            {films.map((films) => (
+              <option key={films.id} value={films.id}>
+                {films.title}
               </option>
             ))}
           </select>

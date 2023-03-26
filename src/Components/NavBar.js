@@ -7,7 +7,6 @@ const NavBar = () => {
         <nav>
             <div className="navbar">
                 <Link to='/'>
-                    {/* <img src={logo} alt='GhibliApp logo' className='logo' /> */}
                 </Link>
                 <ul className='nav-links'>
                     <li>
