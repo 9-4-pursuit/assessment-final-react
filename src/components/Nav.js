@@ -4,20 +4,22 @@ import { Link } from "react-router-dom"
 
 export default function Nav() {
     return (
-        <div>
-            <Link to='/' >
+        <nav className="navbar">
+            <Link to='/' className="nav-link" >
                 <img src={logo} alt="logo" className="logo"/>
             </Link>
-            <Link to='/movies' >
-                <p>Movies</p>
-            </Link>
-            <Link to='/people' >
-                <p>People</p>
-            </Link>
-            <Link to='/locations' >
-                <p>Locations</p>
-            </Link>
-        </div>
+            <div className="menu" >
+                <Link to='/movies' className="nav-link" id="link1" >
+                    <p>Movies</p>
+                </Link>
+                <Link to='/people' className="nav-link" >
+                    <p>People</p>
+                </Link>
+                <Link to='/locations' className="nav-link" >
+                    <p>Locations</p>
+                </Link>
+            </div>
+        </nav>
     )
     
 }
