@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Button from 'react-bootstrap/Button';
 
 const People = () => {
   const [people, setPeople] = useState([]);
@@ -14,7 +15,8 @@ const People = () => {
     event.preventDefault();
     const results = people.filter(person => person.name.toLowerCase().includes(searchTerm.toLowerCase()));
     setSearchResults(results);
-    setShowNotFound(results.length === 0);
+    setShowNotFound(results.length === 0 && searchTerm.length > 0);
+    setSearchTerm('');
   };
   
   const handleClear = () => {
@@ -22,7 +24,6 @@ const People = () => {
     setSearchResults([]);
     setShowNotFound(false);
   };
-
   
 
   useEffect(() => {
@@ -38,15 +39,15 @@ const People = () => {
 
   return (
     <div className="people">
-      <h2>People</h2>
+      <h2>Search for a Person</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" value={searchTerm} onChange={handleSearch} />
-        <button type="submit">Search</button>
-        <button type="button" onClick={handleClear}>
+        <button className="btn-secondary" type="submit">Search</button>
+        <button  className="btn-secondary" type="button" onClick={handleClear}>
           Clear
         </button>
       </form>
-      {showNotFound && <p>No results found</p>}
+      {showNotFound && searchTerm.length > 0 && <p>Not Found</p>}
       <div className="people-list">
         {searchResults.map((person) => (
             <div key={person.id} className="person">
@@ -65,6 +66,7 @@ const People = () => {
       </div>
     </div>
   );
+  
 };
 
 export default People;
