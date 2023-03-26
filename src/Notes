@@ -1,7 +1,79 @@
 In Index, replaced React.StrictMode with </BrowserRouter>.  
 Do I need a home page? Or will App.js suffice? Let's put one in just in case. I can always move the routing later.
 Nope. Routes are created in the App component.
+=============================
 
+=============LOCATIONS====================
+this didn't work:
+import React from 'react'
+import { useState } from 'react'
+
+function Locations() {
+
+    // const [clicked, setClicked]=useState(false);
+    // const [selectOption, setSelectOption] = useState("");
+    //const listLocations = locations.map(location => {
+        // return(
+        //     <Locations
+        //     name={location.name}
+        //     climate={location.climate}
+        //     terrain={location.terrain}
+        //     />
+        // );
+    
+    //);
+
+    <!-- function locationCard(props) {
+        if (!props.location){
+            return null;
+        }
+        const { name, climate, terrain } = props.location;
+
+        
+     -->
+
+    // function handleButtonClick(){
+    //     setClicked(!clicked)
+    // };
+    // function handleSelectOption(event){
+    //     setSelectOption(event.target.value)
+    //     console.log(selectOption) //to check this value
+    // }
+
+
+  return (
+    <div className='locations'>
+        <h1>List of Locations</h1>
+
+        <button onClick={handleButtonClick}>Show Locations</button>
+
+        <p>If show locations button has been clicked and a location has been chosen..</p>
+        <button onClick="">Sort by Name</button>
+        <button onClick="">Sort by Climate</button>
+        <button onClick="">Sort by Terrain</button>
+        
+        <div className='information'>
+            <h2>{name}</h2>
+            <p>{climate}</p>
+            <p>{terrain}</p>
+        </div>
+        {/* <ul>{ listLocations }</ul> */}
+
+    </div>
+  )
+}
+
+export default Locations
+
+//Not using:          
+// <label htmlFor='location'>Show Location</label>
+
+
+
+
+
+
+============== MOVIES =====================
 
 Here is movies before all the changes I am about to make:
 
