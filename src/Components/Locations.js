@@ -29,8 +29,8 @@ function Locations() {
   return (
     <div className='locations'>
         <h1>List of Locations</h1>
-        <label htmlFor='location'>Show Location</label>
-        <button onClick={handleButtonClick}>Show Location</button>
+
+        <button onClick={handleButtonClick}>Show Locations</button>
 
         <p>If show locations button has been clicked and a location has been chosen..</p>
         <button onClick="">Sort by Name</button>
@@ -44,3 +44,6 @@ function Locations() {
 }
 
 export default Locations
+
+//Not using:          
+// <label htmlFor='location'>Show Location</label>

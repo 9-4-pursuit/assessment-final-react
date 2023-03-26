@@ -5,9 +5,8 @@ import { getAllMovies } from '../api/fetch';
 function Movies() {
 
     const [selectOption, setSelectOption] = useState("");
+    const [selectedMovie, setSelectedMovie] = useState("");
     const [movies, setMovies] = useState([]);
-    //const [allMovies, setAllMovies] = useState ([]);
-    //const [searchTitle, setSearchTitle] = useState("")
     const [loadingError, setLoadingError] = useState(false);
 
 
@@ -24,7 +23,9 @@ function Movies() {
       }, []);
 
     function handleSelectOption(event){
-        setSelectOption(event.target.value)
+        const movieID = (event.target.value)
+        const selected = movies.find((movie) => movie.id.toString() === movieID);
+        setSelectedMovie(selected);
     }
 
 
@@ -41,6 +42,15 @@ function Movies() {
             ))}
         </select>
      </form>
+     {selectedMovie && (
+
+            <div>
+                <h2><span style={{fontWeight: 'bold'}}>Title:</span> {selectedMovie.title} </h2>
+                <p><span style={{fontWeight: 'bold'}}>Release Date:</span> {selectedMovie.release_date}</p>
+                <p><span style={{fontWeight: 'bold'}}>Description:</span> {selectedMovie.description}</p>
+            </div>
+
+     )}
     </div>
   );
 }
