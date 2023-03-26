@@ -3,14 +3,13 @@ nav {
   justify-content: space-around;
   background: #517e94;
   padding: 1em;
-  margin-bottom: 2em;
   font-family: sans-serif;
+  width: 100%;
 }
 
 nav a {
   text-decoration: none;
-  font-size: 2em;
-  color: white;
+  color: rgb(44, 156, 216);
 }
 
 nav img {
@@ -45,13 +44,12 @@ li {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-left: 0;
 }
 
 .locations ul > li {
   background: lemonchiffon;
-  width: 26%;
-  padding: 2em;
+  width: 40%;
+  padding: 1em;
 }
 
 .locations ul > li > ul {
@@ -62,9 +60,7 @@ li {
 .locations ul > li > ul li {
   background: ghostwhite;
   display: flex;
-  flex-wrap: no-wrap;
-  width: 90%;
-  justify-content: center;
+  width: 75%;
 }
 
 .locations ul > li > ul li span {
@@ -72,6 +68,7 @@ li {
   display: inline-block;
   width: 100%;
 }
+
 .details li {
   list-style: none;
   margin: 0.5em 0;
@@ -104,6 +101,10 @@ li {
   font-weight: bold;
 }
 
+.personsDesc {
+  text-align: center;
+}
+
 .movies {
   padding-top: 1em;
   height: 80vh;
@@ -115,6 +116,10 @@ li {
   width: 90%;
   margin: auto;
   padding: 1em;
+}
+
+.release {
+  text-align: center;
 }
 
 ul li::marker {
