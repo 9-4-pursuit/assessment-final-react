@@ -27,18 +27,19 @@ export default function Locations() {
         }
     };
 
-    function handleSort(event) {
-        let sortValue = event.target.value;
+    function handleSort(type) {
+        // let sortValue = event.target.value;
         // console.log(sortValue);
         let sortedArr = [...allLocations].sort(function (a, b) {
-            if (a[sortValue] < b[sortValue]) {
+            if (a[type] < b[type]) {
                 return -1
             }
-            if (a[sortValue] > b[sortValue]) {
+            if (a[type] > b[type]) {
                 return -1
             }
             return 0
         })       
+        setAllLocations(sortedArr);
     }
 
     return (
@@ -48,9 +49,9 @@ export default function Locations() {
             {
                 showContent
                     ? <>
-                        <button onClick={() => handleSort()} value="name">Sort by Name</button>
-                        <button onClick={() => handleSort()} value="climate">Sort by Climate</button>
-                        <button onClick={() => handleSort()} value="terrain">Sort by Terrain</button>
+                        <button onClick={() => handleSort('name')} value="name">Sort by Name</button>
+                        <button onClick={() => handleSort('climate')} value="climate">Sort by Climate</button>
+                        <button onClick={() => handleSort('terrain')} value="terrain">Sort by Terrain</button>
                         <ul>
                             {allLocations.map((location) => {
                                 // console.log(location);
