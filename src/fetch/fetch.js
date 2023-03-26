@@ -6,3 +6,9 @@ export async function getMovies() {
   .then((res) => res.json())
   .catch((e) => console.log(e))
 }
+
+export async function getPeople() {
+  return await fetch (`${BASE_URL}/people`)
+  .then((res) => res.json())
+  .catch((e) => console.log(e))
+}
