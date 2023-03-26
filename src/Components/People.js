@@ -33,7 +33,7 @@ function handleSubmitClick(event){
     <div className='people'>
         <h1>Search for a Person</h1>
         <form onSubmit={handleSubmitClick}>
-            <input className='person-search'></input>
+            <input type="text" className='person-search'></input>
             <button className='person-search-button' type="submit">
                 Search
             </button>
@@ -41,7 +41,7 @@ function handleSubmitClick(event){
 
     {selectedPerson && searchInput && (
         <div>
-            {selectedPerson ==="NotFound"  ? (
+            {!selectedPerson  ? (
                         <p>Not Found</p>
             ) : (
         <div>
