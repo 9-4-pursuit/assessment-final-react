@@ -14,7 +14,7 @@ export default function Locations () {
     }, [])
 
         const sortLocType = (type) => {
-            const sortType = [...locations].sort((a, b) => {
+            const sortType = [...loc].sort((a, b) => {
                 return a[type].localCompare(b[type]);
             })
             setLoc(sortType);
@@ -31,13 +31,13 @@ export default function Locations () {
                     <button onClick={() => sortLocType("terrain")}>Sort by Terrain</button>
                     
                 <ul>
-                    {locations.map((location) => {
+                    {loc.map((locations) => {
                         return (
-                            <li key={location.id}>
+                            <li key={loc.id}>
                                 <ul className="location">
-                                    <li><span>Name:</span><span>{location.name}</span></li>
-                                    <li><span>Climate:</span><span>{location.climate}</span></li>
-                                    <li><span>Terrain:</span><span>{location.terrain}</span></li>
+                                    <li><span>Name:</span><span>{loc.name}</span></li>
+                                    <li><span>Climate:</span><span>{loc.climate}</span></li>
+                                    <li><span>Terrain:</span><span>{loc.terrain}</span></li>
                                 </ul>
                             </li>
                         )
