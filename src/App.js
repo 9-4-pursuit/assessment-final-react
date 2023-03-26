@@ -1,10 +1,10 @@
-import Header from "./Components/Header";
+import Nav from "./Components/Nav";
 import Container from "./Components/Container";
 
 function App() {
   return (
     <div className="app">
-      <Header />
+      <Nav />
       <main>
         <Container />
       </main>

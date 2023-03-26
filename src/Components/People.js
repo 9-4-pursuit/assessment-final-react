@@ -40,7 +40,7 @@ useEffect(()=> {
     }
 
     return (
-        <div className="People">
+        <div className="people">
         <h1>Search for a Person</h1>
         <br></br>
         <form>

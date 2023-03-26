@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
 import logo from "../images/ghibli-logo.png"
 
-export default function Header() {
+export default function Nav() {
     return (
-        <header>
-            <ul>
+        <nav>
+            
                 <NavLink to="/"> 
                     <li> <img src={logo} className='ghibli-logo' /> </li>
                 </NavLink>
@@ -20,8 +20,8 @@ export default function Header() {
                 <NavLink to="/locations"> 
                     <li> Locations </li>
                 </NavLink>
-            </ul>
-        </header>
+            
+        </nav>
     );
   }
   

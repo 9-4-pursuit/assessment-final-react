@@ -15,6 +15,8 @@ export default function Movies() {
    })
 
    function handleChange(event) {
+    event.preventDefault()
+
     movies.map((movie)=>{
         if (movie.title === event.target.value){
             setSelect({
@@ -37,8 +39,10 @@ export default function Movies() {
         <br></br>
         <select name="movies" id="movie-select" onChange={handleChange}>
             <option value=""></option>
+
             {movies.map((movie)=>
             (<option key={movie.title} value={movie.title}> {movie.title} </option>))}
+            
         </select>
         <br></br>
         {select.title && (
