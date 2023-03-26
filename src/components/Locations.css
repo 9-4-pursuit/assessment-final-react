@@ -1,0 +1,8 @@
+.locations-data {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: row;
+  list-style-type: none;
+  /* gap: 0px; */
+}
