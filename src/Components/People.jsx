@@ -1,5 +1,4 @@
 import {useState} from "react";
-
 function People ({people}) {
     const [search, setSearch] = useState("");
     const [person, setPerson] = useState("");

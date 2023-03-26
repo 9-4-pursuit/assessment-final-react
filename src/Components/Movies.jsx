@@ -1,4 +1,3 @@
-
 function Movies ({movies, selected, handleSelectChange}) {
     return (
         <div className="movies">
