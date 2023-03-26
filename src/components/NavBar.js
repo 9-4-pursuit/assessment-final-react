@@ -1,0 +1,28 @@
+import React from "react";
+import { NavLink } from "react-router-dom";
+
+function NavBar() {
+  return (
+    <header>
+      <ul className='head-links'>
+        <NavLink to='/'>
+          <li>Home</li>
+        </NavLink>
+
+        <NavLink to='/movies'>
+          <li>Movies</li>
+        </NavLink>
+        
+        <NavLink to='/people'>
+          <li>People</li>
+        </NavLink>
+
+        <NavLink to='/locations'>
+          <li>Locations</li>
+        </NavLink>
+      </ul>
+    </header>
+  );
+}
+
+export default NavBar;
