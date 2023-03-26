@@ -31,10 +31,10 @@ export default function Locations () {
                     <button onClick={() => sortLocType("terrain")}>Sort by Terrain</button>
                     
                 <ul>
-                    {loc.map((locations) => {
+                    {loc.map((location) => {
                         return (
-                            <li key={loc.id}>
-                                <ul className="location">
+                            <li key={location.id}>
+                                <ul className="details">
                                     <li><span>Name:</span><span>{loc.name}</span></li>
                                     <li><span>Climate:</span><span>{loc.climate}</span></li>
                                     <li><span>Terrain:</span><span>{loc.terrain}</span></li>
