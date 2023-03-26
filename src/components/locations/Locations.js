@@ -22,9 +22,32 @@ export default function Locations() {
     console.log(allLocations)
   }
 
+  //function for sorting
+  function sortLocations(sortType) {
+    let sortingArr = [...allLocations]
+    sortingArr.sort((a, b) => {
+      if (a[sortType].toUpperCase() < b[sortType].toUpperCase()) {
+        return -1;
+      }
+      if (a[sortType].toUpperCase() > b[sortType].toUpperCase()) {
+        return 1;
+      }
+      return 0;
+    })
+    setAllLocations(sortingArr);
+  }
+
   return (<div className="locations">
     <h1>List of Locations</h1>
     <button onClick={toggleLocations}>{locationsShown ? "Hide Locations" : "Show Locations"}</button>
+    {locationsShown ? (
+      <section>
+        <button onClick={() => sortLocations("name")}>Sort by Name</button>
+        <button onClick={() => sortLocations("climate")}>Sort by Climate</button>
+        <button onClick={() => sortLocations("terrain")}>Sort by Terrain</button>
+      </section>
+    )
+    :null}
 
     {locationsShown ? 
     <ul>
