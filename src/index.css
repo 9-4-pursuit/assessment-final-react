@@ -122,3 +122,10 @@ ul li::marker {
   color: #517e94;
   opacity: 0;
 }
+.image {
+  
+    width: 50px;
+    max-width:50px;
+    height: 100px;  
+
+}
