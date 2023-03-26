@@ -12,3 +12,9 @@ export async function getPeople() {
   .then((res) => res.json())
   .catch((e) => console.log(e))
 }
+
+export async function getLocations() {
+  return await fetch (`${BASE_URL}/locations`)
+  .then((res) => res.json())
+  .catch((e) => console.log(e))
+}
