@@ -1,10 +1,6 @@
-import React from "react"
-
-function Home () {
-
+ function Home(){
     return(
-
-        <div className="home">
+        <div>
             <h1>Welcome to GhibliApp</h1>
         </div>
     )
