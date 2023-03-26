@@ -6,3 +6,11 @@ export function getFilms() {
     console.log(e);
   }
 }
+
+export function getPeople() {
+  try {
+    return fetch(`${URL}/people`).then((response) => response.json());
+  } catch (e) {
+    console.log(e);
+  }
+}

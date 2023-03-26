@@ -13,7 +13,7 @@ export default function Movies() {
   }, []);
 
   function movieSelectHandler(event) {
-    setSelectedMovie(films.find((movie) => movie.id === event.target.value));
+    setSelectedMovie(films.find((film) => film.id === event.target.value));
   }
   return (
     <div className="movies">
