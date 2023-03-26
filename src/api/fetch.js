@@ -11,3 +11,7 @@ export function getOneMovie(id) {
 export function getOnePerson(id) {
     return fetch(`${URL}/people<${id}>`).then((response) => response.json());
 }
+
+export function getPeople() {
+    return fetch(`${URL}/people`).then((response) => response.json());
+}

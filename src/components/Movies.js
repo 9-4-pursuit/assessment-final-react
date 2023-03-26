@@ -20,8 +20,12 @@ export default function Movies() {
 
     function handleSelect(event) {
         const selectedMovie = movies.filter( (movie) => movie.id === event.target.value )
-        setMovie(selectedMovie[0])
-        setMovieSelected(true)
+        if (Object.keys(selectedMovie).length !== 0) {
+            setMovie(selectedMovie[0])
+            setMovieSelected(true)
+        } else {
+            setMovieSelected(false)
+        }
     }
 
     return (
