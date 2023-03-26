@@ -7,8 +7,20 @@ import People from "./Components/People";
 
 function App() {
   return (
-    <div className="app">
-      <h1>Welcome to GhibliApp</h1>
+    <div className='container'>
+      <Router>
+      <div className="header">
+        <Nav />
+        </div>
+        <div className="main">
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route path='/movies' element={<Movies />} />
+          <Route path='/people' element={<People />} />
+          <Route path='/locations' element={<Locations />} />
+        </Routes>
+        </div>
+      </Router>
     </div>
   );
 }
