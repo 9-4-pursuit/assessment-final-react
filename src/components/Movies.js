@@ -26,10 +26,10 @@ function Movies() {
   }
 
   return (
-    <div>
+    <div className="movies">
         <h2>Select a Movie</h2>
       <select onChange={handleSelect} >
-        <option>--</option>
+        <option value=''>--</option>
         {movies.map((movie) => {
         return <option key={movie.id} value={movie.id}>{movie.title}</option>
       })}
@@ -37,8 +37,8 @@ function Movies() {
 
 
       {movieInfo && (
-        <div>
-            <p><span>Title:</span> {movieInfo.title}</p>
+        <div className="details">
+            <h3><span>Title:</span> {movieInfo.title}</h3>
             <p><span>Release Date:</span> {movieInfo.release_date}</p>
             <p><span>Description:</span> {movieInfo.description}</p>
         </div>

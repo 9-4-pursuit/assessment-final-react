@@ -8,3 +8,12 @@ export async function getMovies() {
         console.log(e);
     }
 }
+
+export async function getPeople() {
+    try {
+        const response = await axios.get(`https://resource-ghibli-api.onrender.com/people`);
+        return response.data;
+    } catch(e) {
+        console.log(e);
+    }
+}
