@@ -43,9 +43,9 @@ export default function Locations() {
             {
                 showContent
                     ? <>
-                        <button onClick={handleSort} value="name">Sort by Name</button>
-                        <button onClick={handleSort} value="climate">Sort by Climate</button>
-                        <button onClick={handleSort} value="terrain">Sort by Terrain</button>
+                        <button onClick={() => handleSort()} value="name">Sort by Name</button>
+                        <button onClick={() => handleSort()} value="climate">Sort by Climate</button>
+                        <button onClick={() => handleSort()} value="terrain">Sort by Terrain</button>
                         <ul>
                             {allLocations.map((location) => {
                                 // console.log(location);
