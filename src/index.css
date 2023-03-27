@@ -9,12 +9,15 @@ nav {
 
 nav a {
   text-decoration: none;
+  text-shadow: 0 0 10px rgba(148, 99, 165, 0.5);
+
+  font-family: 'ITC Lubalin Graph Std';
   font-size: 2em;
   color: ghostwhite;
 }
 
 nav img {
-  height: 50px;
+  height: 60px;
 }
 
 .icon {
@@ -30,13 +33,28 @@ main {
   text-align: center;
 }
 
+.lkhn {
+  font-family: 'Victor Mono';
+  color: whitesmoke;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+
+}
+
+.cephus {
+  font-family: 'Victor Mono';
+  color: whitesmoke;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+
+}
+
 .movies h2 {
   font-family: 'ITC Lubalin Graph Std';
-  color: whitesmoke
+  color: whitesmoke;
 }
 
 .movie-select {
   font-family: 'ITC Lubalin Graph Std';
+  color: whitesmoke;
 }
 
 section,
@@ -45,7 +63,13 @@ h2 {
   width: 90%;
   margin: auto;
   text-align: center;
+  color: whitesmoke;
   font-family: 'ITC Avant Garde Gothic';
+}
+
+.repo {
+  color: whitesmoke;
+  font-family: 'ITC Avant Garde Gothic'
 }
 
 li {
@@ -86,7 +110,7 @@ li {
 }
 
 .locations ul > li > ul li {
-  background: ghostwhite;
+  background: rgb(15, 15, 84);
   display: flex;
   flex-wrap: no-wrap;
   width: 90%;
@@ -108,6 +132,12 @@ li {
   font-weight: bold;
 }
 
+.card-body {
+  text-shadow: 0 0 10px rgba(15, 0, 20, 0.5);
+  opacity: 0.8;
+  background-color: #978f8f;
+}
+
 .people {
   background-image: url(https://wallpaperaccess.com/full/4730363.jpg);
   background-size: cover;
@@ -117,6 +147,10 @@ li {
   font-family: 'ITC Avant Garde Gothic';
 }
 
+button {
+font-family: 'ITC Avant Garde Gothic';
+}
+
 .people h2 {
   font-family: 'ITC Lubalin Graph Std';
   color: whitesmoke
@@ -124,6 +158,8 @@ li {
 
 .people aside {
   background: ghostwhite;
+  text-shadow: 0 0 10px rgba(15, 0, 20, 0.5);
+  opacity: 0.2;
   width: 80%;
   min-height: 50%;
   margin: auto;
@@ -138,6 +174,18 @@ li {
   font-weight: bold;
 }
 
+.card-columns {
+  opacity: 0.8;
+  text-shadow: 0 0 10px rgba(15, 0, 20, 0.5);
+
+  
+}
+
+.card-text strong {
+  font-style: italic;
+  color:rgba(72, 9, 93, 0.5)
+}
+
 .movies {
   background-image: url(https://wallpaperaccess.com/full/4730363.jpg);
   background-size: cover;
@@ -145,7 +193,44 @@ li {
   height: 80vh;
   padding-top: 1em;
   font-family: 'ITC Avant Garde Gothic';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.selected-movie {
+  font-family: 'ITC Lubalin Graph Std';
+  background-color: #978f8f;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 1em;
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.selected-movie img {
+  flex: 0 0 150px;
+  margin-right: 20px;
+}
+
+.selected-movie span {
+  font-family: 'ITC Lubalin Graph Std';
+}
+
+.selected-movie .description {
+  flex: 1;
+  margin-left: 20px;
+}
+
+@media (max-width: 576px) {
+  .movies {
+    height: auto;
+  }
+}
+
+
 
 .movies aside {
   background: aliceblue;
@@ -164,11 +249,20 @@ button {
 }
 
 /* ---------Cephus Styling */
+.home a {
+  color: whitesmoke;
+}
+
+
+.home a:hover {
+  color: rgb(214, 191, 236);
+}
+
 .home {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   background-image: url("https://wallpaperaccess.com/full/4730363.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -237,5 +331,9 @@ button {
   margin-right: 0.5em;
   border-radius: 50%;
   transition: background-color 0.3s ease-in-out;
+}
+
+.description {
+  font-family: 'ITC Avant Garde Gothic';
 }
 

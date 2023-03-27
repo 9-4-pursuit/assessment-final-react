@@ -5,7 +5,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Alert from 'react-bootstrap/Alert';
-import './People.css';
 
 const People = () => {
   const [people, setPeople] = useState([]);
@@ -53,7 +52,7 @@ const People = () => {
               <Form.Control type="text" value={searchTerm} onChange={handleSearch} placeholder="Enter a name" />
             </Col>
             <Col xs={6} sm={2} md={1}>
-              <Button variant="primary" type="submit" block>Search</Button>
+              <Button variant="secondary" type="submit" block>Search</Button>
             </Col>
             <Col xs={6} sm={2} md={1}>
               <Button variant="secondary" type="button" onClick={handleClear} block>Clear</Button>
