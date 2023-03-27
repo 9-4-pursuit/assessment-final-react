@@ -45,7 +45,7 @@ export default function People() {
     }
 
     return (
-      <div className="people">
+      <main className="people">
         <section>
           <h2>Search for a Person</h2>
           <form onSubmit={handleSubmit}>
@@ -72,7 +72,7 @@ export default function People() {
                 <p>{error}</p>
               </section>
             )}
-      </div>
+      </main>
     );
   }
   

@@ -2,7 +2,7 @@ import { getLocations } from "../api/fetch";
 import { useState, useEffect } from "react";
 
 export default function Locations () {
-    const [loc, setLoc] = useState([])
+    const [locations, setLoc] = useState([])
     const [showLoc, setShowLoc] = useState(false);
 
     useEffect(() => {
@@ -14,8 +14,8 @@ export default function Locations () {
     }, [])
 
         const sortLocType = (type) => {
-            const sortType = [...loc].sort((a, b) => {
-                return a[type].localCompare(b[type]);
+            const sortType = [...locations].sort((a, b) => {
+                return a[type].localeCompare(b[type]);
             })
             setLoc(sortType);
         };
@@ -23,7 +23,10 @@ export default function Locations () {
         return (
             <div className="locations">
                 <h2>List of Locations</h2>
-                <button onClick={() => setShowLoc(!showLoc)}></button>
+                <button onClick={() => setShowLoc(!showLoc)}>
+                    {showLoc ? "Hide Locations" : "Show Locations"}
+                </button>
+
                 {showLoc && (
                     <>
                     <button onClick={() => sortLocType("name")}>Sort by Name</button>
@@ -31,13 +34,13 @@ export default function Locations () {
                     <button onClick={() => sortLocType("terrain")}>Sort by Terrain</button>
                     
                 <ul>
-                    {loc.map((location) => {
+                    {locations.map((location) => {
                         return (
                             <li key={location.id}>
                                 <ul className="details">
-                                    <li><span>Name:</span><span>{loc.name}</span></li>
-                                    <li><span>Climate:</span><span>{loc.climate}</span></li>
-                                    <li><span>Terrain:</span><span>{loc.terrain}</span></li>
+                                    <li><span>Name:</span><span>{location.name}</span></li>
+                                    <li><span>Climate:</span><span>{location.climate}</span></li>
+                                    <li><span>Terrain:</span><span>{location.terrain}</span></li>
                                 </ul>
                             </li>
                         )

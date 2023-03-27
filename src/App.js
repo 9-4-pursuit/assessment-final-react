@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 
 import Movies from "./Components/Movies";
@@ -13,7 +13,7 @@ import Locations from "./Components/Locations";
 function App() {
   return (
     <div className="app">
-      <Router>
+      <BrowserRouter>
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -21,7 +21,7 @@ function App() {
           <Route path="/people" element={ <People /> } />
           <Route path="/locations" element={ <Locations /> } />
         </Routes>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }
