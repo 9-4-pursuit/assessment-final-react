@@ -153,7 +153,7 @@ describe("has a functioning Locations page", () => {
   it("shows all locations and additional information when the Show Locations button is clicked", () => {
     cy.get("button").first().contains("Show Locations").click();
 
-    cy.get(".locations > ul > li").should("have.length", 24);
+    cy.get(".locations > ul > ul ").should("have.length", 24);
     cy.get(".locations ul ul li").contains("Irontown");
     cy.get(".locations ul ul li").contains("The Marsh House");
     cy.get(".locations ul ul li").contains("Pazu's Mines");
