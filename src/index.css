@@ -48,18 +48,15 @@ li {
   margin-left: 0;
 }
 
-.locations ul > li {
+.locations ul > ul {
+  margin-left: 0;
+  list-style: none;
   background: lemonchiffon;
   width: 26%;
   padding: 2em;
 }
 
-.locations ul > li > ul {
-  margin-left: 0;
-  list-style: none;
-}
-
-.locations ul > li > ul li {
+.locations ul > ul > li {
   background: ghostwhite;
   display: flex;
   flex-wrap: no-wrap;
@@ -67,7 +64,7 @@ li {
   justify-content: center;
 }
 
-.locations ul > li > ul li span {
+.locations ul > ul > li span {
   text-align: center;
   display: inline-block;
   width: 100%;
